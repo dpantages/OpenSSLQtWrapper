@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <memory>
+
+class OpenSSLController;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,5 +20,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    std::unique_ptr<OpenSSLController> controller;
+    void displayResults(const QString& result);
+
+    void verifyButtonClicked();
+
 };
 #endif // MAINWINDOW_H
